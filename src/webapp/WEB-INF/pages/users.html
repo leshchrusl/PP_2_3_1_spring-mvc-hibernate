@@ -4,19 +4,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users</title>
 </head>
 <body>
     <table>
         <thead>
         <tr>
             <th> Id </th>
-            <th> Brand </th>
-            <th> Model </th>
+            <th> Name </th>
+            <th> Last name </th>
+            <th> Age </th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="car : ${carsList}">
+        <tr th:each="user : ${carsList}">
             <td><span th:text="${car.id}"> Id </span></td>
             <td><span th:text="${car.brand}"> Brand </span></td>
             <td><span th:text="${car.model}"> Model </span></td>
