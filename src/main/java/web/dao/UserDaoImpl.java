@@ -1,12 +1,11 @@
 package web.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.data.annotation.PersistenceCreator;
 import org.springframework.stereotype.Repository;
 import web.models.User;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Repository
@@ -23,9 +22,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void createUser(User user) {
-        em.getTransaction().begin();
         em.persist(user);
-        em.getTransaction().commit();
     }
 
     @Override
@@ -35,15 +32,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(User user) {
-        em.getTransaction().begin();
         em.merge(user);
-        em.getTransaction().commit();
     }
 
     @Override
-    public void deleteUser(User user) {
-        em.getTransaction().begin();
-        em.remove(user);
-        em.getTransaction().commit();
+    public void deleteUserById(int id) {
+        em.remove(em.find(User.class, id));
     }
 }
