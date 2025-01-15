@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -16,6 +17,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
+
+//https://www.baeldung.com/the-persistence-layer-with-spring-and-jpa
 
 @Configuration
 @EnableTransactionManagement
@@ -71,6 +74,15 @@ public class JPAConfig {
 
    @Bean
    public PlatformTransactionManager transactionManager() {
-      return new JpaTransactionManager(entityManagerFactory().getObject());
+
+      JpaTransactionManager transactionManager = new JpaTransactionManager();
+      transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+
+      return transactionManager;
+   }
+
+   @Bean
+   public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+      return new PersistenceExceptionTranslationPostProcessor();
    }
 }
