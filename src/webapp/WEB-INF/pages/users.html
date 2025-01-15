@@ -7,9 +7,7 @@
     <title>Users</title>
 </head>
 <body>
-
-Hi!
-
+Таблица пользователей:
     <table>
         <thead>
         <tr>
@@ -21,13 +19,17 @@ Hi!
         </thead>
         <tbody>
         <tr th:each="user : ${users}">
-            <td><span th:text="${user.id}"> Id </span></td>
-            <td><span th:text="${user.name}"> Name </span></td>
-            <td><span th:text="${user.lastName}"> Last Name </span></td>
-            <td><span th:text="${user.age}"> Age </span></td>
+            <td><span th:text="${user.id}"></span></td>
+            <td><span th:text="${user.name}"></span></td>
+            <td><span th:text="${user.lastName}"></span></td>
+            <td><span th:text="${user.age}"></span></td>
+            <td><a th:href="'/' + ${user.id} + '/update'">Update</a></td>
+            <td><a th:href="'/' + ${user.id} + '/delete'">Delete</a></td>
         </tr>
         </tbody>
     </table>
+
+<a href="add">Add new user</a>
 
 </body>
 </html>
