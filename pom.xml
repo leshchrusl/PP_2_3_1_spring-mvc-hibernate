@@ -46,13 +46,6 @@
             <version>3.4.1</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>jakarta.servlet</groupId>-->
-<!--            <artifactId>jakarta.servlet-api</artifactId>-->
-<!--            <version>6.1.0</version>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -66,12 +59,6 @@
             <artifactId>thymeleaf-spring5</artifactId>
             <version>3.0.14.RELEASE</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.hibernate.orm</groupId>-->
-<!--            <artifactId>hibernate-core</artifactId>-->
-<!--            <version>6.6.4.Final</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
