@@ -14,6 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -23,10 +24,10 @@ import java.util.Properties;
 @PropertySource("classpath:db.properties")
 public class JPAConfig {
 
-   private Environment env;
+   private final Environment env;
 
    @Autowired
-   public void setEnv(Environment env) {
+   public JPAConfig (Environment env) {
       this.env = env;
    }
 

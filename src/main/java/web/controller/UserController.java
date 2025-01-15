@@ -15,29 +15,16 @@ import java.util.List;
 @Controller
 public class UserController {
 
-//    private ApplicationContext applicationContext;
-//
-//    private UserService userService =
-//            applicationContext.getBean(UserService.class);
-//
-//    @Autowired
-//    public UserController(ApplicationContext applicationContext) {
-//        this.applicationContext = applicationContext;
-//    }
+    private final UserService userService;
 
-    UserService userService = new UserServiceImpl(new UserDaoImpl());
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/")
     public String index(Model model) {
 
-        List<User> users = userService.getAllUsers();
-
-        for (User user : users) {
-            System.out.println(user);
-        }
-
         model.addAttribute("users", userService.getAllUsers());
-
 
         return "users";
     }

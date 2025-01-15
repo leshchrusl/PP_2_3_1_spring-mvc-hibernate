@@ -5,7 +5,7 @@ import org.springframework.data.annotation.PersistenceCreator;
 import org.springframework.stereotype.Repository;
 import web.models.User;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.List;
 
 @Repository
