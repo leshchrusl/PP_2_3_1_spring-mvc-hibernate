@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String getAllUsers(Model model) {
 
         model.addAttribute("users",
                 userService.getAllUsers());
@@ -37,7 +37,7 @@ public class UserController {
     }
 
     @GetMapping("/add")
-    public String addUserPage(@ModelAttribute("user")
+    public String getAddUserPage(@ModelAttribute("user")
                                   User user) {
         return "add";
     }
@@ -52,7 +52,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/update")
-    public String updateUserPage(@PathVariable("id") int id,
+    public String getUpdateUserPage(@PathVariable("id") int id,
                              Model model) {
 
         model.addAttribute("user",
